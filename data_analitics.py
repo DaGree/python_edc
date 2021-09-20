@@ -2,24 +2,20 @@ import csv #library for us in csv-files
 from apriori_python import apriori #lib foor analys
 
 transactions=[]
-with open('dataset\Basket.csv', newline='', encoding='latin-1') as File:  
+with open('dataset\BreadBasket_DMS.csv', newline='',) as File:  
     assets=[]
     reader = csv.reader(File,delimiter=',')
-    for row in reader:  
-        assets.append(row[1])
-
-def data_parser(filename):
-    
-    def data_par():
-        with open(filename) as file:
-            for line in file:
-                yield tuple(k.strip() for k in line.split(','))
-    return data_par
-    
+    for row in reader: 
+        if row[2]!='Transaction':
+            i = int(row[2])
+            assets.insert(i,row[3])
+ 
 #transactions = list(data_parser('dataset\Basket.csv'))
 #print(type(transactions))
-for i in range(10):
-    print(assets[i])
-freqItemSet, rules = apriori(assets, minSup=0.3, minConf=0.3)
-print(rules)
-print(freqItemSet)
+for i in range(len(assets)):
+    # будем теперь обходить массив z[i]
+    for j in range(len(assets[i])):
+        print(assets[i][j])
+#freqItemSet, rules = apriori(assets, minSup=0.3, minConf=0.3)
+#print(rules)
+#print(freqItemSet)
