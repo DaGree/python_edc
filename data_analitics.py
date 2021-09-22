@@ -9,7 +9,7 @@ def data_parser():
             i=0
             j = int(row[2])-1
             for i in range(j):
-                assets.append(row[3])      
+                assets.insert(1,row[3])      
     return assets
 
 def analys_apriori(datar):
@@ -33,4 +33,4 @@ with open('dataset\Basket.csv', newline='') as File:
 datar = []
 datar=data_parser()         
 #print(datar)
-#analys_apriori(datar)
+analys_apriori(datar)
