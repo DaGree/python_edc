@@ -23,12 +23,14 @@ def output(a):
     for i in range (len(datar)):
         for j in range (len(datar[i])):
             print(datar[i][j])
-   
-with open('dataset\Basket.csv', newline='') as File:  
-    transactions=[]
-    reader = csv.reader(File,delimiter=',')
-    for row in reader:
-        transactions.append(row)
+
+def data_parser_lit():
+    with open('dataset\Basket.csv', newline='') as File:  
+        transactions=[]
+        reader = csv.reader(File,delimiter=',')
+        for row in reader:
+            transactions.append(row)
+    return(transactions)
 
 datar = []
 datar=data_parser()         
