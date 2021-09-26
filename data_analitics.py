@@ -14,7 +14,7 @@ def analys_efficient_apriori(datar):
     print(freqItemSet)
 
 def analys_fpgrowth(datar):
-    freqItemSet, rules = fpgrowth(datar, minSupRatio=0.5, minConf=0.5)
+    freqItemSet, rules = fpgrowth(datar, minSupRatio=0.05, minConf=0.001)
     print(rules)
 
 def analys_apriori(datar):
@@ -57,3 +57,4 @@ def data_reader(name):
 datar=data_reader('dataset\BreadBasket.csv')   
 #print(datar)
 analys_efficient_apriori(datar)
+#analys_fpgrowth(datar)
